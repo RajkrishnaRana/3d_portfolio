@@ -1,91 +1,98 @@
-import { motion } from 'framer-motion'
-import { styles } from '../styles'
-import { github } from '../assets'
-import { projects } from '../constants'
-import { SectionWrapper } from './hoc'
-import { fadeIn, textVariant } from '../utils/motion'
-import { Tilt } from 'react-tilt'
+import { motion } from "framer-motion";
+import { styles } from "../styles";
+import { github } from "../assets";
+import { projects } from "../constants";
+import { SectionWrapper } from "./hoc";
+import { fadeIn, textVariant } from "../utils/motion";
+import { Tilt } from "react-tilt";
 
-const ProjectCard = ({index, name, description, tags, image, source_code_link}) => {
-  return(
+const ProjectCard = ({
+  index,
+  name,
+  description,
+  tags,
+  image,
+  source_code_link,
+}) => {
+  return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
-        option = {{
-          max : 45,
-          scale : 1,
-          speed : 450
+        option={{
+          max: 45,
+          scale: 1,
+          speed: 450,
         }}
-        className = "bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
-        <div className='relative w-full h-[230px]'>
-          <img 
-            src= {image}
-            alt = {name}
-            className='w-full h-full object-cover rounded-2xl'
+        <div className="relative w-full h-[230px]">
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover rounded-2xl"
           />
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div 
+          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+            <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img 
-                src= {github}
-                alt = "github"
-                className='w-1/2 h-1/2 object-contain'
+              <img
+                src={github}
+                alt="github"
+                className="w-1/2 h-1/2 object-contain"
               />
             </div>
           </div>
         </div>
 
-        <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+        <div className="mt-5">
+          <h3 className="text-white font-bold text-[24px]">{name}</h3>
+          <p className="mt-2 text-secondary text-[14px]">{description}</p>
         </div>
 
-        <div className='mt-4 flex flex-wrap gap-2'>
+        <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <p key={tag.name} className= {`text-[14px] ${tag.color}`}>
+            <p key={tag.name} className={`text-[14px] ${tag.color}`}>
               #{tag.name}
             </p>
           ))}
         </div>
       </Tilt>
     </motion.div>
-  )
-}
+  );
+};
 
 const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className= {styles.sectionSubText}>
-          My Work
-        </p>
-        <h2 className= {styles.sectionHeadText}>
-          Projects.
-        </h2>
+        <p className={styles.sectionSubText}>My Work</p>
+        <h2 className={styles.sectionHeadText}>Projects.</h2>
       </motion.div>
 
-      <div className='w-full flex'>
+      <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+          Welcome to my portfolio's project section, where I showcase some of my
+          web development endeavors.Here, you'll find a list of projects that
+          demonstrate my proficiency in various technologies and my ability to
+          deliver high-quality, user-centric experiences. From responsive
+          designs to interactive features, these projects exemplify my
+          dedication to creating impactful digital solutions. Feel free to click
+          on each project to learn more about the technologies used, design
+          process, and the problems solved. Let's embark on a journey through my
+          portfolio of web development achievements!
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
+      <div className="mt-20 flex flex-wrap gap-7">
         {projects.map((project, index) => (
-          <ProjectCard 
-            key = {`project-${index}`}
-            index = {index}
-            {...project}
-          />
+          <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SectionWrapper(Works, "")
+export default SectionWrapper(Works, "");

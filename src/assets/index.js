@@ -21,7 +21,7 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import c from "./tech/C++.png";
-import java from "./tech/java.png"
+import java from "./tech/java.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -32,11 +32,14 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
-import idea from "./education/idea.gif"
-import kgec from "./education/Kgec.png"
-import rkm from "./education/Rkm.jpeg"
-import khs from "./education/kona_high.jpeg"
-import grad from "./education/graduation.gif"
+import idea from "./education/idea.gif";
+import kgec from "./education/Kgec.png";
+import rkm from "./education/Rkm.jpeg";
+import khs from "./education/kona_high.jpeg";
+import grad from "./education/graduation.gif";
+import DesignFolio from "./project/DesignFolio.png";
+import ElectroReadCare from "./project/ElectroReadCare.jpg";
+import ModernNike from "./project/ModernNike.png";
 
 export {
   logo,
@@ -74,4 +77,7 @@ export {
   rkm,
   khs,
   grad,
+  DesignFolio,
+  ElectroReadCare,
+  ModernNike,
 };
