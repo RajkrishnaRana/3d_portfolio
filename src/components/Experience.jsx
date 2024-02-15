@@ -15,6 +15,7 @@ const ExperienceCard = ({ experience }) => {
   const firebase = useFirebase();
   const [url, setURL] = useState(null);
 
+  //get images from firebase storage
   useEffect(() => {
     firebase.getImageURL(experience.icon).then((url) => setURL(url));
   });
@@ -65,6 +66,7 @@ const Experience = () => {
   const firebase = useFirebase();
   const [fireData, setFireData] = useState([]);
 
+  //this hook helps to get all the data from firestore
   useEffect(() => {
     firebase
       .listAllData()
